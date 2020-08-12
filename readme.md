@@ -1,7 +1,7 @@
 # Личный проект «Типотека» [![Build status][travis-image]][travis-url]
 
 * Студент: [Di Coderr](https://up.htmlacademy.ru/nodejs/3/user/928893).
-* Наставник: `Неизвестно`.
+* Наставник: `Эдуард Симонян`.
 
 ---
 
