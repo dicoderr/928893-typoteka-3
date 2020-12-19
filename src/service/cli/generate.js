@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require(`fs`);
+const fs = require(`fs`).promises;
 const {DateTime, Duration} = require(`luxon`);
 const chalk = require(`chalk`);
 const {ExitCode} = require(`../../constants`);
@@ -79,7 +79,7 @@ const generatePosts = (count) => Array(count).fill(1).map(() => ({
 
 module.exports = {
   name: `--generate`,
-  run(args) {
+  async run(args) {
     const [countArg] = args;
     const count = Number.parseInt(countArg, 10) || DEFAULT_COUNT;
 
@@ -90,7 +90,8 @@ module.exports = {
 
     const data = JSON.stringify(generatePosts(count));
     try {
-      fs.writeFileSync(FILE_NAME, data);
+      await fs.writeFile(FILE_NAME, data);
+      console.log(chalk.green(`Данные успешно записаны в файл.`));
     } catch (e) {
       console.error(chalk.red(`Не удалось записать данные в файл...`));
       console.error(chalk.red(`Ошибка: ${e.message}`));
