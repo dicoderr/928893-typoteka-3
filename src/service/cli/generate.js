@@ -2,6 +2,7 @@
 
 const fs = require(`fs`);
 const {DateTime, Duration} = require(`luxon`);
+const chalk = require(`chalk`);
 const {ExitCode} = require(`../../constants`);
 const {getRandomInt, shuffle, getRandomRange} = require(`../../utils`);
 
@@ -83,7 +84,7 @@ module.exports = {
     const count = Number.parseInt(countArg, 10) || DEFAULT_COUNT;
 
     if (count > 1000) {
-      console.info(`Не больше 1000 публикаций`);
+      console.info(chalk.blue(`Не больше 1000 публикаций`));
       process.exit(ExitCode.success);
     }
 
@@ -91,8 +92,8 @@ module.exports = {
     try {
       fs.writeFileSync(FILE_NAME, data);
     } catch (e) {
-      console.error(`Не удалось записать данные в файл...`);
-      console.error(`Ошибка: ${e.message}`);
+      console.error(chalk.red(`Не удалось записать данные в файл...`));
+      console.error(chalk.red(`Ошибка: ${e.message}`));
       process.exit(ExitCode.error);
     }
   },
