@@ -85,7 +85,7 @@ module.exports = {
 
     if (count > 1000) {
       console.info(chalk.blue(`Не больше 1000 публикаций`));
-      process.exit(ExitCode.success);
+      return;
     }
 
     const data = JSON.stringify(generatePosts(count));
