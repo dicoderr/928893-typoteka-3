@@ -4,19 +4,19 @@ const {Router} = require(`express`);
 const router = new Router();
 
 router.get(`/`, (req, res) => {
-  res.send(req.originalUrl);
+  res.render(`main`);
 });
 router.get(`/register`, (req, res) => {
-  res.send(req.originalUrl);
+  res.render(`sign-up`);
 });
 router.get(`/login`, (req, res) => {
-  res.send(req.originalUrl);
+  res.render(`login`);
 });
 router.get(`/search`, (req, res) => {
-  res.send(req.originalUrl);
+  res.render(`search`);
 });
 router.get(`/categories`, (req, res) => {
-  res.send(req.originalUrl);
+  res.render(`all-categories`);
 });
 
 module.exports = router;

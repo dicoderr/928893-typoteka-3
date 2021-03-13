@@ -4,19 +4,19 @@ const {Router} = require(`express`);
 const router = new Router();
 
 router.get(`/`, (req, res) => {
-  res.send(req.originalUrl);
+  res.render(`posts`);
 });
 router.get(`/add`, (req, res) => {
-  res.send(req.originalUrl);
+  res.render(`new-post`);
 });
 router.get(`/category/:id`, (req, res) => {
-  res.send(req.originalUrl);
+  res.render(`articles-by-category`);
 });
 router.get(`/edit/:id`, (req, res) => {
-  res.send(req.originalUrl);
+  res.render(`edit-post`);
 });
 router.get(`/:id`, (req, res) => {
-  res.send(req.originalUrl);
+  res.render(`post`);
 });
 
 module.exports = router;
