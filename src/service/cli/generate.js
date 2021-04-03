@@ -32,13 +32,16 @@ const readContent = async (path) => {
   }
 };
 
-const generatePosts = (count, titles, categories, sentences) => Array(count).fill(1).map(() => ({
-  title: titles[getRandomInt(0, titles.length - 1)],
-  createdDate: getDate().toFormat(`y-MM-dd hh:mm:ss`),
-  announce: getRandomRange(shuffle(sentences), 1, MAX_ANNOUNCE_LINES).join(` `),
-  fullText: getRandomRange(shuffle(sentences), MAX_ANNOUNCE_LINES).join(` `),
-  category: getRandomRange(shuffle(categories)),
-}));
+const generatePosts = (count, titles, categories, sentences) =>
+  Array(count)
+    .fill(1)
+    .map(() => ({
+      title: titles[getRandomInt(0, titles.length - 1)],
+      createdDate: getDate().toFormat(`y-MM-dd hh:mm:ss`),
+      announce: getRandomRange(shuffle(sentences), 1, MAX_ANNOUNCE_LINES).join(` `),
+      fullText: getRandomRange(shuffle(sentences), MAX_ANNOUNCE_LINES).join(` `),
+      category: getRandomRange(shuffle(categories)),
+    }));
 
 module.exports = {
   name: `--generate`,

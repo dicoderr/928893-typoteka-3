@@ -19,6 +19,6 @@ app.use(`/articles`, articlesRoutes);
 app.use(`/my`, myRoutes);
 app.use(`/`, mainRoutes);
 
-app.listen(DEFAULT_PORT, ()=>{
+app.listen(DEFAULT_PORT, () => {
   console.log(`App is listening at http://localhost:${DEFAULT_PORT}`);
 });
