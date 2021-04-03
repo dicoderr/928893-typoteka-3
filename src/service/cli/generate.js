@@ -3,6 +3,7 @@
 const fs = require(`fs`).promises;
 const {DateTime, Duration} = require(`luxon`);
 const chalk = require(`chalk`);
+const {nanoid} = require(`nanoid`);
 const {ExitCode} = require(`../../constants`);
 const {getRandomInt, shuffle, getRandomRange} = require(`../../utils`);
 
@@ -14,6 +15,7 @@ const MS_IN_MONTH = Duration.fromObject({month: 1}).as(`milliseconds`);
 const SENTENCES_PATH = `./data/sentences.txt`;
 const TITLES_PATH = `./data/titles.txt`;
 const CATEGORIES_PATH = `./data/categories.txt`;
+const MAX_ID_LENGTH = 6;
 
 const getDate = () => {
   const now = Date.now();
@@ -36,6 +38,7 @@ const generatePosts = (count, titles, categories, sentences) =>
   Array(count)
     .fill(1)
     .map(() => ({
+      id: nanoid(MAX_ID_LENGTH),
       title: titles[getRandomInt(0, titles.length - 1)],
       createdDate: getDate().toFormat(`y-MM-dd hh:mm:ss`),
       announce: getRandomRange(shuffle(sentences), 1, MAX_ANNOUNCE_LINES).join(` `),
