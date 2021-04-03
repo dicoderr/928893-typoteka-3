@@ -2,7 +2,7 @@
 
 const path = require(`path`);
 const fs = require(`fs`).promises;
-const MOCKS_PATH = path.resolve(__dirname, `../../../../mocks.json`);
+const MOCKS_PATH = path.resolve(__dirname, `../../../mocks.json`);
 
 let data = null;
 
