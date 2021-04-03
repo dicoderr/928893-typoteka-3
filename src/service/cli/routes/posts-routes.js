@@ -1,16 +1,13 @@
 'use strict';
 
-const path = require(`path`);
-const fs = require(`fs`).promises;
 const {Router} = require(`express`);
+const {getMockData} = require(`../../lib/get-mock-data`);
 
-const MOCKS_PATH = path.resolve(__dirname, `../../../../mocks.json`);
 const router = new Router();
 
 router.get(`/`, async (req, res) => {
   try {
-    const fileContent = await fs.readFile(MOCKS_PATH, `utf8`);
-    const mocks = JSON.parse(fileContent);
+    const mocks = await getMockData();
     res.json(mocks);
   } catch (e) {
     res.json([]);
