@@ -1,5 +1,7 @@
 'use strict';
 
-const CategoryService = require('./category');
+const CategoryService = require('./category-service');
+const ArticleService = require('./article-service');
+const CommentService = require('./comment-service');
 
-module.exports = {CategoryService};
+module.exports = {CategoryService, ArticleService, CommentService};
